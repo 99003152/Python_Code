@@ -1,0 +1,107 @@
+# importing math module
+import math
+
+
+class areas():
+    def __init__(self, side1, side2):
+        self.side1 = side1
+        self.side2 = side2
+
+    def square(self):
+        return self.side1 * self.side1
+
+    def triangle(self):
+        print(0.5 * self.side1 * self.side2)
+
+    def rectangle(self):
+        print(self.side1 * self.side2)
+
+
+class volumes():
+    def __init__(self, radius, height):
+        self.radius = radius
+        self.height = height
+
+    def cone(self):
+        print(0.33 * math.pi * self.radius * self.radius * self.height)
+
+    def cylinder(self):
+        print(math.pi * self.radius * self.radius * self.height)
+
+
+class cube_volume(areas):
+
+    def __init__(self, side, side1, side2):
+        areas.__init__(self, side1, side2)
+        self.side = side
+
+    def cube1(self):
+        C_V = areas.square(self)
+        print(C_V * side)
+
+if __name__ == "__main__":
+
+    while(True):
+        print("Enter the choice:")
+        print("1. calculate areas")
+        print("2. calculate volumes")
+        print("3. calculate volume of cube")
+        user_choice = input("enter selection1\n")
+        user_choice = int(user_choice)
+        if user_choice == 1:
+            print("select 2D shape")
+            print("1. square")
+            print("2. triangle")
+            print("3. rectangle")
+            selection1 = int(input("enter choice: "))
+            if selection1 == 1:
+                side1 = int(input("enter the side: "))
+                side2 = side1
+                o1 = areas(side1, side2)
+                o1.square()
+            elif selection1 == 2:
+                side1 = int(input("enter the base: "))
+                side2 = int(input("enter the height: "))
+                o1 = areas(side1, side2)
+                o1.triangle()
+            elif selection1 == 3:
+                side1 = int(input("enter the side1: "))
+                side2 = int(input("enter the side2: "))
+                o1 = areas(side1, side2)
+                o1.rectangle()
+            else:
+                print("not a valid option:")
+        elif user_choice == 2:
+            print("select 3D shape")
+            print("1. cone")
+            print("2. cylinder")
+            selection2 = int(input("enter choice"))
+            if selection2 == 1:
+                print("enter the radius and height")
+                radius = int(input("enter radius: "))
+                height = int(input("enter height: "))
+                o2 = volumes(radius, height)
+                o2.cone()
+
+            elif selection2 == 2:
+                print("enter the radius and height")
+                radius = int(input("enter radius: "))
+                height = int(input("enter height: "))
+                o2 = volumes(radius, height)
+                o2.cylinder()
+            else:
+                print("Not a valid option")
+
+        elif user_choice == 3:
+                side = int(input("enter side: "))
+                o3 = cube_volume(side, side, side)
+                o3.cube1()
+        else:
+                print("invalid")
+
+        print("q for quit and c for continue")
+        a = input()
+        if a == 'q':
+            break
+        else:
+            continue
